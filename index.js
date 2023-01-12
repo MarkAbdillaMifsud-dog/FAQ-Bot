@@ -26,9 +26,40 @@ for (const file of commandFiles) {
 }
 
 client.on('messageCreate', async msg => {
-    if(msg.content === 'What do you think of Paul?') {
-        msg.reply('haha lol');
+    if (msg.author.bot) return;
+    if(msg.content.includes('meme')) {
+        msg.reply('Memes can unfortunately put our server at risk!');
+        msg.reply('Please check out the official subreddit at https://www.reddit.com/r/ConflictofNations/ for memetastic fun!');
     }
+
+    if(msg.content.includes('nickname') || (msg.content.includes('message') && msg.content.includes('deleted'))){
+        msg.reply('There are blacklists for both nicknames and content posted within text channels.');
+        msg.reply('Certain words and phrases are not appropriate for this server and attempts to get around the filter are not allowed.');
+    }
+
+    if(msg.content.includes('language')) {
+        msg.reply("Check out our different language channels on the left! If your language  isn't available ingame and we don't have staff to moderate it, we cannot open the language specific channel");
+        msg.reply('Remember to go to #faq-and-roles to assign your languages to your server profile.');
+    }
+
+    if(msg.content.includes('moderator')) {
+        msg.reply('Need assistance? You can tag @Support Staff to report rule breaks in our text channels. It is important not to abuse the tags made available!');
+    }
+
+    if(msg.content.includes('bug')) {
+        msg.reply('Found a bug? Only use the ingame bug report or email us on support@doradogames.com!');
+    }
+
+    if(msg.content.includes('feedback') || msg.content.includes('suggestion')) {
+        msg.reply('Use our #feedback channel once you have it unlocked to share your thoughts with us. Never ping staff members to provide suggestions or feedback.');
+        msg.reply('You can also discuss your feedback on our Forums. More info here: https://forum.conflictnations.com/index.php?board/6-suggestions/!');
+    }
+
+    /* TODO:
+    - Set up a reply for specific keywords for each question in the Discord CoN FAQ [DONE]
+    - We can then consider extending this to general stuff found on the wiki
+    - Solution for later: See if we can refer to stuff in a text file so remove hardcoding from the bot code itself
+    */
 });
 
 
