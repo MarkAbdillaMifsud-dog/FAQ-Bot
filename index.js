@@ -1,10 +1,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, Partials, ChannelType } = require('discord.js');
 const { token } = require('./config.json');
 const { Collection } = require('discord.js');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.MessageContent] ,partials: [Partials.Message,Partials.Channel]});
 
 client.commands = new Collection();
 
@@ -26,7 +26,16 @@ for (const file of commandFiles) {
 }
 
 client.on('messageCreate', async msg => {
-    if (msg.author.bot) return;
+    if(msg.author.bot) return; //required otherwise bot will spamn replies
+    if(msg.channel.type === ChannelType.DM){
+        msg.reply('hello');
+        return;
+    }
+}); 
+
+
+client.on('messageCreate', async msg => {
+    if (msg.author.bot) return; //required otherwise bot will spamn replies
     if(msg.content.includes('meme')) {
         msg.reply('Memes can unfortunately put our server at risk!');
         msg.reply('Please check out the official subreddit at https://www.reddit.com/r/ConflictofNations/ for memetastic fun!');
@@ -63,6 +72,7 @@ client.on('messageCreate', async msg => {
 });
 
 
+
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
     
@@ -77,7 +87,7 @@ client.on(Events.InteractionCreate, async interaction => {
         await command.execute(interaction);
     } catch(error) {
         console.error(error);
-        await interaction.reply({ content: 'Theew was an error while executing this command!', ephemeral: true});
+        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true});
     }
 });
 
