@@ -28,8 +28,9 @@ for (const file of commandFiles) {
 client.on('messageCreate', async msg => {
     if(msg.author.bot) return; //required otherwise bot will spamn replies
     if(msg.channel.type === ChannelType.DM){
-        msg.reply('hello');
-        return;
+        if(msg.content.includes('verification') || msg.content.includes("can't type")) {
+            msg.reply('Follow all the instructions when joining the CoN Server and look out for a DM from the Double Counter bot! Click the link you get to verify your account');
+        }
     }
 }); 
 
@@ -63,15 +64,73 @@ client.on('messageCreate', async msg => {
         msg.reply('Use our #feedback channel once you have it unlocked to share your thoughts with us. Never ping staff members to provide suggestions or feedback.');
         msg.reply('You can also discuss your feedback on our Forums. More info here: https://forum.conflictnations.com/index.php?board/6-suggestions/!');
     }
+    // FROM FAQ SHEET
 
-    /* TODO:
-    - Set up a reply for specific keywords for each question in the Discord CoN FAQ [DONE]
-    - We can then consider extending this to general stuff found on the wiki
-    - Solution for later: See if we can refer to stuff in a text file so remove hardcoding from the bot code itself
-    */
+    if(msg.content.includes('SC') || msg.content.includes('Security Council')) {
+        msg.reply('Security Council access is the way to get exclusive benefits in Conflict of Nations!');
+        msg.reply('Find out more over here: https://wiki.conflictnations.com/Membership');
+    }
+    
+    if(msg.content.includes('firing mode') || msg.content.includes('Security Council')) {
+        msg.reply('Firing modes are available only for Security Council subscribers and are available for ranged units');
+        msg.reply('Click on the unit and set up the firing mode by clicking on the button for that mode. The default behaviour is always aggressive!');
+    }
+
+    if(msg.content.includes('ban')) {
+        msg.reply('Did you get banned in the game? Send an email on support@doradogames.com to appeal, but only if you are deemed worthy enough!');
+    }
+
+    if(msg.content.includes('bug')) {
+        msg.reply('Found a bug? The CMs would love to hear from you. Send a bug report using the bug report button on desktop while in a map.');
+        msg.reply('If you are on mobile, use the support button while in a game, but this is only available if you have made at least one purchase in the game.');
+        msg.reply('Otherwise, remember we have an email on support@doradogames.com. If you are using this, make sure to include all your game information in the email!');
+    }
+
+    if(msg.content.includes('leader')) {
+        msg.reply('Want to be an alliance leader on the server? Message Support Staff and provide your ingame name and your alliance name!');
+    }
+
+    if(msg.content.includes('private')) {
+        msg.reply('Private games are not allowed in Conflict of Nations! Please check out the public games available or look for an alliance :)');
+    }
+
+    if((msg.content.includes('CM') || msg.content.includes('Community Manager')) && (msg.content.includes('best') || msg.content.includes('great'))){
+        msg.reply('We have some great CMs in Conflict of Nations!');
+        msg.reply('Yak is the guru and has made the community what it is today');
+        msg.reply('Maxim is the patient one, always doing his best to make the community great and support alliances!');
+        msg.reply('Atomio is kind and quiet, but a force behind the scenes!');
+        msg.reply('Aquela is also a CM.');
+    }
+
+    if(msg.content.includes('resources') && msg.content.includes('more')) {
+        msg.reply('Resources can be obtained either by using the ingame market to trade with ingame cash, or by using gold to purcahse resource packs!');
+    }
+
+    if (msg.content.includes('name change')) {
+        msg.reply('Username changes must be done in the mobile app');
+        msg.reply('First, go to the main menu, where you can enter your games, or play new games!');
+        msg.reply('Secondly, select the more button at the bottom right corner');
+        msg.reply('Select the Account option and from here you can update your Player Name');
+        msg.reply('Remember to save afterwards so the change takes place! Remember you can only do this once on your account!');
+    }
+
+    if(msg.content.includes('stack')) {
+        msg.reply('To stack units, make sure that you move the units to the same spot on the map. They will merge into one stack automatically!');
+    }
+
+    if((msg.content.includes('capture') || msg.content.includes('conquer')) && (msg.content.includes('city') || msg.content.includes('province') || msg.content.includes('city') || msg.content.includes('land'))) {
+        msg.reply('Only infantry units, with the exception of Special Forces, can conquer land');
+    }
+
+    if(msg.content.includes('rogue') || msg.content.includes('insurgent')) {
+        msg.reply('Oh no! Not those insurgents again! When your morale becomes dangerously low, there is a chance that insurgents will spawn in your cities which have low morale!');
+        msg.reply('Always keep units stationed in cities with morale under 35% to fend off any possible civilian incursions!');
+    }
+
+    if((msg.content.includes('hp') || msg.content.includes('health')) && (msg.content.includes('move') || msg.content.includes('moving'))) {
+        msg.reply('Your units only lose hp when moving if you are using the rush command, or if you are using naval units in high seas that operate best in coastal waters, like the corvette');
+    }
 });
-
-
 
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
