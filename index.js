@@ -223,6 +223,39 @@ client.on('messageCreate', async msg => {
     if(msg.content.includes('uav') && msg.content.includes('war')) {
         msg.reply("No, a UAV will not declare war when flying over a neutral nation. However it may be visible to the other nation if it's not stealth, no sneaking a peek if your UAV is lower than lvl 6");
     }
+    
+    if(msg.content.includes('What is your purpose?')) {
+        msg.reply('I answer questions and want to put the teachers out of business');
+        msg.reply({
+            files: ['https://i.ytimg.com/vi/sa9MpLXuLs0/maxresdefault.jpg']
+        });
+    }
+
+    if(msg.content.includes('increase') && (msg.content.includes('supplies') || msg.content.includes('components') || msg.content.includes('fuel') || msg.content.includes('rare materials') || msg.content.includes('cash') || msg.content.includes('electronics') || msg.content.includes('manpower'))) {
+        msg.reply('This usually depends on the resource but different cities have different resource generation. It also depends on your population level, your morale, and whether the city is homeland, occupied or annexed');
+        msg.reply('Cash is easy to generate. Just grow your empire. Manpower depends on both growth and your recruitment offices!');
+    }
+
+    if(msg.content.includes('win game')) {
+        msg.reply('Different maps have different VP requirements. The requirements also depend on if you are in a coalition or going solo');
+        msg.reply('When the required VP is reached, games always end on day change!');
+    }
+
+    if(msg.content.includes('I am tired') || msg.content.includes("I'm tired")) {
+        msg.reply("Hi tired. I'm FAQ Bot!");
+    }
+
+    if(msg.content.includes('issue')) {
+        msg.reply({
+            files: ['https://i.kym-cdn.com/entries/icons/original/000/032/874/cover4.jpg']
+        });
+    }
+
+    if(msg.content.includes('private')) {
+        msg.reply({
+            files: ['https://media0.giphy.com/media/daPCSjwus6UR2JxRX1/giphy.gif?cid=ecf05e472uti9rcxu4jmc5l0g1f3a7fzo4gifzl738djpknu&rid=giphy.gif&ct=g']
+        });
+    }
 });
 
 client.on(Events.InteractionCreate, async interaction => {
