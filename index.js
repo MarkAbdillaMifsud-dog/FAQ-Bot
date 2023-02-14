@@ -96,7 +96,7 @@ client.on('messageCreate', async msg => {
 
     if((msg.content.includes('CM') || msg.content.includes('Community Manager')) && (msg.content.includes('best') || msg.content.includes('great'))){
         msg.reply('We have some great CMs in Conflict of Nations!');
-        msg.reply('Yak is the guru and has made the community what it is today');
+        msg.reply('Yak is the guru and has made the community what it is today through sheer force of will and perserverence!');
         msg.reply('Maxim is the patient one, always doing his best to make the community great and support alliances!');
         msg.reply('Atomio is kind and quiet, but a force behind the scenes!');
         msg.reply('Aquela is also a CM.');
@@ -129,6 +129,99 @@ client.on('messageCreate', async msg => {
 
     if((msg.content.includes('hp') || msg.content.includes('health')) && (msg.content.includes('move') || msg.content.includes('moving'))) {
         msg.reply('Your units only lose hp when moving if you are using the rush command, or if you are using naval units in high seas that operate best in coastal waters, like the corvette');
+    }
+
+    if(msg.content.includes('coalition')) {
+        msg.reply('Coalitions are ingame teams that work together towards a shared VP amount to win the map!');
+        msg.reply('To join a coalition, find one that you like and apply is there are enough free spaces available. Keep the wolfpacking rule in mind throughout to keep to a fair battlefield :slight_smile:');
+    }
+
+    if(msg.content.includes('insurgent') && msg.content.includes('alliance')) {
+        msg.reply('Get ready to have your mind blown! Insurgents actually do not really appear in alliance games, however in some rare instances, you can still encounter them!');
+        msg.reply('Due to some shared code magic with other Bytro games, cities can actually rebel and declare themselves for another country. When this happens, the rebelling city goes to one of your alliance teammates!');
+    }
+
+    if(msg.content.includes('rush')) {
+        msg.reply('Looking to rush your troops? That is a good way to get somewhere faster. While using rush your HP gradually decreases however so be careful. You do not want your soldiers dying from exhaustion.');
+    }
+
+    if(msg.content.includes('entrenchment')) {
+        msg.reply('Units are entrenched when they are stationed in a friendly city, or a friendly province that has Barracks constructed. This provides a big bonus to their defence, making it harder for the enemy to kill your troops!');
+        msg.reply('Barracks and Underground Bunkers all provide increases to your entrenchment!');
+    }
+
+    if(msg.content.includes('resource trading')) {
+        msg.reply('CoN does not allow for resource trading. You must use the market to buy or sell goods. Direct trading is only available in alliance matches with your own teammates.');
+    }
+
+    if((msg.content.includes('NG') || msg.content.includes('national guard')) && (msg.content.includes('hp')) || msg.content.includes('health')) {
+        msg.reply("National Guard's spawn hp is dependent on the morale of the city it mobilized in, the unit can be healed fully afterwards");
+    }
+
+    if(msg.content.includes('ship') && msg.content.includes('heal')) {
+        msg.reply('Ships heal in any coastal waters at the rate of 2hp/day/unit, this rate cannot be changed by any buildings.');
+    }
+
+    if(msg.content.includes('low') && msg.content.includes('morale')) {
+        msg.reply('If your citizens are angry at you, might be good to check your civilian casualties and the number of wars you are involved in. Praying at the Church of Road is also a good alternative');
+    }
+
+    if((msg.content.includes('ally') || msg.content.includes('allied')) && (msg.content.includes('hospital') || msg.content.includes('heal'))) {
+        msg.reply('Allied hospitals also allow you to heal your troops. Make sure your troops are insured if you are leaving them in a US hospital though. Their prices are a nightmare!');
+    }
+
+    if((msg.content.includes('ally') || msg.content.includes('allied')) && (msg.content.includes('aircraft') || msg.content.includes('carrier'))) {
+        msg.reply('Parties on aircraft carriers are not open to allies. You will have to throw your own little carrier parties instead!');
+    }
+
+    if((msg.content.includes('aircraft') || msg.content.includes('plane')) && (msg.content.includes('truck') || msg.content.includes('vehicle'))) {
+        msg.reply('When an airfield/base the plane is grounded at, gets destroyed or no longer remains friendly, the aircraft will turn into a transport truck, the truck can only travel over land. To get your aircraft back, rebuild the airfield/base, or take it to an existing friendly base');
+    }
+
+    if(msg.content.includes('coalition') && msg.content.includes('flag')) {
+        msg.reply('No. Dorado artists have instead created a bunch of flags to choose from :slight_smile:. Use those. Do not make the artists sad');
+    }
+
+    if(msg.content.includes('elite unit') || msg.content.includes('season')) {
+        msg.reply('We have a huge info dump at this link for all your elite unit/season questions: https://wiki.conflictnations.com/Seasons');
+    }
+
+    if((msg.content.includes('aircraft') || msg.content.includes('plane')) && (msg.content.includes('return') || msg.content.includes('base'))) {
+        msg.reply('A recent update introduced a refuel timer while planes are patrolling in the air. Once the timer ends they must return to base to refuel. The timer startds from the moment the planes leaves its airport');
+    }
+
+    if(msg.content.includes('resource') && msg.content.includes('city')) {
+        msg.reply('Each city produces one main resource together with Manpower and Cash. The icon next to the name of the city indicates the resource of that city');
+    }
+
+    if(msg.content.includes('anti-air')) {
+        msg.reply('AAs attack enemy units that get in range. Keep in mind AAs also have to reload after every hit. More on Field of View here: https://wiki.conflictnations.com/Field_of_View');
+    }
+
+    if(msg.content.includes('spy') || msg.content.includes('spies')) {
+        msg.reply('Spies are a valuable resource in the game and can turn the tide of battle. Make sure you know how to defend against them.');
+        msg.reply('Make sure to recruit agents to stay in your cities. The more agents you have in a city, the better chances of capturing enemy spies!');
+    }
+
+    if(msg.content.includes('doctrine')) {
+        msg.reply('CoN has 3 research doctrines, which determine the units a country can research earlier than others, and units which are made available later in the game.');
+        msg.reply('Here is a handy list for you: https://wiki.conflictnations.com/Research');
+    }
+
+    if(msg.content.includes('airlift') || msg.content.includes('air travel')) {
+        msg.reply('Units with the necessary ability can travel between airports directly as long as they are in range. Always check your unit card');
+    }
+
+    if(msg.content.includes('disembark') && msg.content.includes('damage')) {
+        msg.reply('The general rule of thumb is it depends on how the unit looks like, if it looks like a ship, it will take ship damage, if it looks like a ground unit, it will take ground unit damage');
+    }
+
+    if(msg.content.includes('insurgent') && (msg.content.includes('victory') || msg.content.includes('win'))) {
+        msg.reply('Correct. Insurgents can in fact win a map if they get enough VPs. Be ready!');
+    }
+
+    if(msg.content.includes('uav') && msg.content.includes('war')) {
+        msg.reply("No, a UAV will not declare war when flying over a neutral nation. However it may be visible to the other nation if it's not stealth, no sneaking a peek if your UAV is lower than lvl 6");
     }
 });
 
