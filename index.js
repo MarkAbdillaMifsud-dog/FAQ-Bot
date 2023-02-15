@@ -64,7 +64,6 @@ client.on('messageCreate', async msg => {
         msg.reply('Use our #feedback channel once you have it unlocked to share your thoughts with us. Never ping staff members to provide suggestions or feedback.');
         msg.reply('You can also discuss your feedback on our Forums. More info here: https://forum.conflictnations.com/index.php?board/6-suggestions/!');
     }
-    // FROM FAQ SHEET
 
     if(msg.content.includes('SC') || msg.content.includes('Security Council')) {
         msg.reply('Security Council access is the way to get exclusive benefits in Conflict of Nations!');
@@ -89,11 +88,7 @@ client.on('messageCreate', async msg => {
     if(msg.content.includes('leader')) {
         msg.reply('Want to be an alliance leader on the server? Message Support Staff and provide your ingame name and your alliance name!');
     }
-
-    if(msg.content.includes('private')) {
-        msg.reply('Private games are not allowed in Conflict of Nations! Please check out the public games available or look for an alliance :)');
-    }
-
+    
     if((msg.content.includes('CM') || msg.content.includes('Community Manager')) && (msg.content.includes('best') || msg.content.includes('great'))){
         msg.reply('We have some great CMs in Conflict of Nations!');
         msg.reply('Yak is the guru and has made the community what it is today through sheer force of will and perserverence!');
@@ -255,6 +250,11 @@ client.on('messageCreate', async msg => {
         msg.reply({
             files: ['https://media0.giphy.com/media/daPCSjwus6UR2JxRX1/giphy.gif?cid=ecf05e472uti9rcxu4jmc5l0g1f3a7fzo4gifzl738djpknu&rid=giphy.gif&ct=g']
         });
+    }
+
+    if(msg.content.toLowerCase().includes('church of road')) {
+        msg.reply("Church with sacred endeavor, power to connect communities and promote growth and progress. In the Church of Road, we believe in the importance of creating roads that serve all users, not just those in vehicles, But all modes of transportation, Aircraft, Boat, Space, even Digital. We are not only improving the physical world, but also creating a foundation for a better future for all.");
+        msg.reply('All Road lead to the Church.');
     }
 });
 
